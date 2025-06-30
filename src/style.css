@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* Esta directiva personalizada es la que permite que se apliquen los estilos dark:<clase> para el modo oscuro, en la versión mas reciente de tailwind + vite + vue*/
+@custom-variant dark (&:where(.dark, .dark *));
