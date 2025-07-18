@@ -28,19 +28,17 @@ const store = useTodoStore()
 
 .task-leave-from{
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateY(0);
 }
 
 .task-leave-active{
-    position: absolute;
-    width: 100%;
-    min-height: 40px;
+    transform-origin: top;
     transition: transform 300ms ease-in, opacity 300ms ease-in;
 }
 
 .task-leave-to{
     opacity: 0;
-    transform: translateX(100px)
+    transform: translateY(-20px);
 }
 
 .task-move{
