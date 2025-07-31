@@ -6,8 +6,9 @@
                 {{ task.text }}
             </span>
             <div class="flex gap-2 items-center">
+                <button @click="$emit('toggle', task.id)" class="transition-all">✅</button>
                 <button @click="$emit('remove', task.id)"
-                    class="text-red-500 hover:text-red-700 transition-colors duration-300">
+                    class="text-red-500 hover:text-red-700 transition-colors duration-300 active:scale-90">
                     🗑
                 </button>
             </div>
