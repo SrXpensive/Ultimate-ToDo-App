@@ -37,8 +37,13 @@ export const useTodoStore = defineStore('todo',() => {
     const completedTasks = computed(()=>
         tasks.value.filter(t => t.done).length
     )
-    
+    const activeTasks = computed(()=>
+        tasks.value.filter(t => !t.done).length
+    )
+    const completionPercentage = computed(()=>
+        Math.round((completedTasks.value/(totalTasks.value || 1))*100)
+    )
     return{
-        tasks, activeFilter, addTask, removeTask, toggleTask, setFilter, filteredTasks, totalTasks, completedTasks
+        tasks, activeFilter, addTask, removeTask, toggleTask, setFilter, filteredTasks, totalTasks, completedTasks, activeTasks, completionPercentage
     }
 })

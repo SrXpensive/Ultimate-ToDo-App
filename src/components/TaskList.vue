@@ -1,5 +1,6 @@
 <template>
     <TaskFilter/>
+    <TaskStats class="mb-4"/>
     <transition-group name="task" tag="ul" class="space-y-2 relative">
         <TaskItem v-for="task in store.filteredTasks" :key="task.id" :task="task" @remove="store.removeTask(task.id)" @toggle="store.toggleTask(task.id)"/>
     </transition-group>
@@ -9,6 +10,7 @@
 import {useTodoStore} from '../stores/todoStore'
 import TaskItem from './TaskItem.vue'
 import TaskFilter from './TaskFilter.vue'
+import TaskStats from './TaskStats.vue'
 
 const store = useTodoStore()
 </script>
