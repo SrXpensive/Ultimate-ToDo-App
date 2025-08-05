@@ -2,7 +2,14 @@ import {defineStore} from 'pinia'
 import {ref, computed, watch} from 'vue'
 
 export const useTodoStore = defineStore('todo',() => {
-    const tasks = ref(JSON.parse(localStorage.getItem('tasks') || []))
+    let savedTasks = [];
+    try{
+        savedTasks = JSON.parse(localStorage.getItem('tasks') || [])
+
+    }catch(e){
+        console.warn("Error al leer los datos de localStorage", e)
+    }
+    const tasks = ref(savedTasks)
     const activeFilter = ref('all')
     
     watch(tasks, (newTasks)=>{
